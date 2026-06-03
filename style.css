@@ -76,33 +76,43 @@ a {
 /* =========================================================
    トップページの「ヒーロー」（一番上の大きな写真）
    ========================================================= */
+
 .hero {
   position: relative;
-  margin: 24px auto;
+  margin: 30px auto; /* 上下のすき間を少し広げてスッキリ */
   max-width: 960px;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
 }
 
+/* 💡写真の下側にじわっと影を敷いて、白い文字を激変するほど読みやすくする仕掛け */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(transparent 40%, rgba(0, 0, 0, 0.6));
+}
+
 .hero img {
   width: 100%;
-  height: 320px;
+  height: 360px; /* 大地の写真が大迫力で見えるように、高さを少しアップ！ */
   object-fit: cover;
 }
 
 .hero .hero-text {
   position: absolute;
-  left: 28px;
-  bottom: 24px;
+  left: 32px;
+  bottom: 28px;
   color: #fff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  z-index: 1; /* 影よりも上に文字を表示するおまじない */
 }
 
 .hero .hero-text h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: 700;
 }
-
 /* =========================================================
    セクションの見出し
    ========================================================= */
